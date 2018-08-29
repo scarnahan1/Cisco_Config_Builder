@@ -1,0 +1,345 @@
+no service pad
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime localtime show-timezone
+service password-encryption
+service compress-config
+!
+hostname host84
+!
+boot-start-marker
+boot-end-marker
+!
+vtp mode client
+vtp password vtpdomainpassword
+vtp version 2
+vtp domain vtpdomain
+!
+!
+logging buffered 32000
+enable secret 5 Cisco
+!
+username network password 7 Cisco
+aaa new-model
+!
+!
+aaa authentication login default group tacacs+ enable
+aaa authentication login linepass line
+aaa authentication enable default group tacacs+ enable
+aaa authentication ppp default local
+aaa authorization exec default group tacacs+ none 
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands 15 default start-stop group tacacs+
+!
+!
+aaa session-id common
+clock timezone EST -5 0
+clock summer-time EDT recurring
+switch 1 provision ws-c3650-24pd
+switch 2 provision ws-c3650-24pd
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+switch 1 prio 15
+switch 2 prio 12
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+udld enable
+!
+!
+!
+diagnostic bootup level minimal
+!
+sspanning-tree mode rapid-pvst
+spanning-tree portfast edge bpduguard default
+spanning-tree etherchannel guard misconfig
+spanning-tree logging
+spanning-tree loopguard default
+spanning-tree extend system-id
+spanning-tree portfast bpduguard default
+!
+ip dhcp snooping
+ip domain-name my.domain.com
+ip name-server 192.168.251.61
+ip name-server 192.168.10.202
+!
+errdisable recovery interval 120
+!
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime localtime show-timezone
+service password-encryption
+logging buffered 51200 warnings
+!
+hw-switch switch 1 logging onboard message level 3
+!
+redundancy
+ mode sso
+!
+lldp run
+!
+ip telnet source-interface Vlan50
+ip ftp source-interface Vlan50
+ip ftp username network
+ip ftp password 7 Cisco
+!
+!
+!
+!
+!
+interface Port-channel1
+ description MDF: fllak-s1-mdf-core4500-vss
+ switchport mode trunk
+ logging event link-status
+ load-interval 30
+!
+!
+!
+interface GigabitEthernet1/1/1 - 2
+ description GigabitEthernet1/1/1 - 2description
+ switchport mode trunk
+ channel-group 1 mode on
+ logging event link-status
+ load-interval 30
+!
+interface GigabitEthernet2/1/1 - 2
+ description GigabitEthernet2/1/1 - 2description
+ switchport mode trunk
+ channel-group 1 mode on
+ logging event link-status
+ load-interval 30
+!
+
+!##################### BEGIN ACCESS PORT CONFIGS #################
+
+
+interface range GigabitEthernet1/0/1-23 , Gi2/0/1-24
+ description data
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 20
+ switchport host
+ storm-control broadcast level 5.00
+ storm-control multicast level 5.00
+ storm-control action shutdown
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ spanning-tree guard root
+ logging event link-status
+ auto qos voip cisco-phone
+!
+interface range GigabitEthernet1/0/24 - 29 , Gig2/0/25 - 28
+ description bastian - vlan40
+ switchport access vlan 40
+ switchport mode access
+ switchport host
+ storm-control broadcast level 5.00
+ storm-control multicast level 5.00
+ storm-control action shutdown
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ spanning-tree guard root
+ logging event link-status
+!
+!
+interface range GigabitEthernet1/0/30 - 44 , Gi2/0/29 - 43
+ description security
+ switchport access vlan 51
+ switchport mode access
+ switchport host
+ storm-control broadcast level 5.00
+ storm-control multicast level 5.00
+ storm-control action shutdown
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ spanning-tree guard root
+ logging event link-status
+!
+!
+interface range GigabitEthernet1/0/45 - 48 , Gig2/0/44 - 48
+ description AP
+ switchport
+ switchport mode trunk
+ switchport trunk native vlan 167
+ switchport trunk allowed vlan 35,168,200,267,367
+ storm-control broadcast level 5.00
+ storm-control multicast level 5.00
+ storm-control action shutdown
+ spanning-tree portfast trunk
+ logging event link-status
+
+ 
+ ##################### END ACCESS PORT CONFIGS #################
+ 
+
+
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface vlan50
+ desc mgmt_10.100.54.186/24
+ ip address 10.100.54.186 255.255.255.192
+ no ip redirects
+ no ip route-cache
+!
+ip default-gateway 10.100.54.65
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+ip tacacs source-interface vlan50
+!
+!
+ip access-list extended vvlan-any
+ permit ip 10.100.48.0 0.0.0.255 any
+!
+ip access-list extended vvlan-call-signaling
+ permit tcp 10.100.48.0 0.0.0.255 any range 2000 2002
+ permit tcp 10.100.48.0 0.0.0.255 any eq 1720
+ permit tcp 10.100.48.0 0.0.0.255 any range 11000 11999
+ permit udp 10.100.48.0 0.0.0.255 any eq 2427
+ permit tcp 10.100.48.0 0.0.0.255 any eq 1719
+!
+ip access-list extended vvlan-voice
+ permit udp 10.100.48.0 0.0.0.255 any range 16384 32767
+!
+logging source-interface vlan50
+logging host 10.10.9.200
+logging host 192.168.10.221
+!
+!
+access-list 66 deny   any log
+!
+access-list 97 remark Cisco Prime (next 1 line)
+access-list 97 permit 192.168.10.93
+access-list 97 permit 147.225.58.194
+access-list 97 remark Orion (next 1 line)
+access-list 97 permit 192.168.251.114
+access-list 97 remark router loopback IPs (next 2 lines)
+access-list 97 permit 10.10.0.0 0.0.0.255
+access-list 97 permit 10.100.0.0 0.0.0.255
+access-list 97 remark Network Group wireless IPs (next 1 line)
+access-list 97 permit 10.18.0.20 0.0.0.3
+access-list 97 remark Network Group VPN IPs (next 2 lines)
+access-list 97 permit 10.10.27.0 0.0.0.7
+access-list 97 permit 10.10.27.236 0.0.0.3
+access-list 97 remark Server subnet (next 1 line)
+access-list 97 permit 192.168.10.0 0.0.1.255
+
+access-list 97 deny   any log
+!
+snmp-server view novacm internet included
+snmp-server view novacm snmpVacmMIB excluded
+snmp-server community private RW
+snmp-server community public RO 66
+snmp-server community fun RW
+snmp-server community snmpn0w view novacm RO
+snmp-server community c411@sw RW 5
+snmp-server community cable-docsis RO 66
+snmp-server location Warehouse
+snmp-server contact support / 954-252-7890
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps tty
+snmp-server enable traps flash insertion removal
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps entity
+snmp-server enable traps config
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server host 10.10.9.200 public 
+tacacs-server host 10.10.9.210
+tacacs-server host 192.168.251.5
+tacacs-server directed-request
+tacacs-server key 7 tacacspassword
+!
+!
+!
+banner exec ^
+
+             -----
+             |       |       |    |\     |
+             |       |       |    | \    |
+             |---    |       |    |  \   |
+             |       |       |    |   \  |
+             |       |       |    |    \ |
+             |       |_______|    |     \|
+
+
+^
+banner incoming ^
+
+Connection via $(hostname) on line $(line) established.
+             Press [ENTER] to Continue.
+
+^
+banner login ^
+
++-----------------------------NOTICE-----------------------------+
+
+           Unauthorized access is not permitted!
+ Intruders will be prosecuted to the fullest extent of the law.
+
+ Location/Hostname: $(hostname)
++-----------------------------NOTICE-----------------------------+
+
+^
+!
+!
+alias exec acl show access-list
+alias exec ct conf t
+alias exec sb show ip int brief
+alias exec sd show int desc
+alias exec sicf show ip cache flow
+alias exec siib show ip int brief
+alias exec sir show ip route
+alias exec sr show run
+alias exec srb show run | begin
+alias exec sri show run | include
+alias exec srin show run int
+alias exec eth show ether sum
+alias exec traffic show ip nbar protocol-discovery stats bit-rate top-n 10
+!
+line con 0
+ exec-timeout 15 0
+ password 7 consolepassword
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ access-class 97 in
+ exec-timeout 50 0
+ password 7 linepassword
+ length 0
+line vty 5 15
+ access-class 97 in
+ exec-timeout 50 0
+ password 7 linepassword
+!
+ntp source vlan50
+ntp peer 10.100.54.1 prefer
+ntp peer 10.100.54.2
+!
+!
+!
