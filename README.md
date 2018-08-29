@@ -33,6 +33,12 @@ Was created to compare the pre and post output of log files from Cisco devices. 
 the two files and compares them and logs the differences to a log file for review. It has a very simple GUI front end
 built with TKinter. I'm not a GUI design guy so it's just barely functional.
 It Should be self explanatory what to do when you run the program. 
+
+## TXT2EXCEL
+Does what the name says. Take text files and adds them to tabs in an Excel file. 
+This module does require xtwt. Version 1.3.0 was used when creating this module. 
+Just like FileCompare.py it has a very simple GUI design and should be self explanatory. 
+
     
  ### Installing
  Python 3.6.6
