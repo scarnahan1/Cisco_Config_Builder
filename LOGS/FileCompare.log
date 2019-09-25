@@ -1,0 +1,55 @@
+2018-08-28 13:35:40,423:FileCompare.main:DEBUG   :None
+2018-08-28 13:35:40,424:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 13:35:58,397:FileCompare.gui_thread:DEBUG   :Called GUI Function...
+2018-08-28 13:35:58,404:FileCompare.regex_create:DEBUG   :Called Main_Thread...
+2018-08-28 13:35:58,431:FileCompare.regex_create:INFO    :--- 0.026602983474731445 seconds ---
+2018-08-28 13:40:31,506:FileCompare.main:DEBUG   :None
+2018-08-28 13:40:31,507:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 13:44:42,446:FileCompare.main:DEBUG   :None
+2018-08-28 13:44:42,446:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 13:45:53,387:FileCompare.main:DEBUG   :None
+2018-08-28 13:45:53,387:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 13:46:08,756:FileCompare.gui_thread:DEBUG   :Called GUI Function...
+2018-08-28 13:46:08,758:FileCompare.main_thread:DEBUG   :Called Main_Thread...
+2018-08-28 13:46:08,787:FileCompare.main_thread:INFO    :--- 0.028751134872436523 seconds ---
+2018-08-28 13:47:58,499:FileCompare.gui_thread:DEBUG   :Called GUI Function...
+2018-08-28 13:47:58,499:FileCompare.main_thread:DEBUG   :Called Main_Thread...
+2018-08-28 13:47:58,528:FileCompare.main_thread:INFO    :--- 0.02805614471435547 seconds ---
+2018-08-28 13:48:00,964:FileCompare.gui_thread:DEBUG   :Called GUI Function...
+2018-08-28 13:48:00,965:FileCompare.main_thread:DEBUG   :Called Main_Thread...
+2018-08-28 13:48:00,992:FileCompare.main_thread:INFO    :--- 0.02747511863708496 seconds ---
+2018-08-28 13:48:36,899:FileCompare.main:DEBUG   :None
+2018-08-28 13:48:36,899:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 13:48:52,659:FileCompare.gui_thread:DEBUG   :Called GUI Function...
+2018-08-28 13:48:52,660:FileCompare.main_thread:DEBUG   :Called Main_Thread...
+2018-08-28 13:48:52,693:FileCompare.main_thread:INFO    :--- 0.03297781944274902 seconds ---
+2018-08-28 13:49:59,969:FileCompare.main:DEBUG   :None
+2018-08-28 13:49:59,969:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 13:50:16,529:FileCompare.gui_thread:DEBUG   :Called GUI Function...
+2018-08-28 13:50:16,530:FileCompare.main_thread:DEBUG   :Called Main_Thread...
+2018-08-28 13:50:16,559:FileCompare.main_thread:INFO    :--- 0.029323101043701172 seconds ---
+2018-08-28 15:31:19,526:FileCompare.main:DEBUG   :None
+2018-08-28 15:31:19,526:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:34:21,366:FileCompare.main:DEBUG   :None
+2018-08-28 15:34:21,367:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:36:57,562:FileCompare.main:DEBUG   :None
+2018-08-28 15:36:57,562:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:37:16,273:FileCompare.main:DEBUG   :None
+2018-08-28 15:37:16,273:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:37:48,982:FileCompare.main:DEBUG   :None
+2018-08-28 15:37:48,983:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:38:36,509:FileCompare.main:DEBUG   :None
+2018-08-28 15:38:36,510:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:41:42,197:FileCompare.main:DEBUG   :None
+2018-08-28 15:41:42,197:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:41:57,522:FileCompare.gui_thread:DEBUG   :Called GUI Function...
+2018-08-28 15:41:57,522:FileCompare.main_thread:DEBUG   :Called Main_Thread...
+2018-08-28 15:41:57,538:FileCompare.main_thread:INFO    :--- 0.01556706428527832 seconds ---
+2018-08-28 15:43:26,318:FileCompare.main:DEBUG   :None
+2018-08-28 15:43:26,318:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:43:54,747:FileCompare.main:DEBUG   :None
+2018-08-28 15:43:54,748:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:44:46,924:FileCompare.main:DEBUG   :None
+2018-08-28 15:44:46,924:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
+2018-08-28 15:45:40,822:FileCompare.main:DEBUG   :None
+2018-08-28 15:45:40,822:FileCompare.main:DEBUG   :/Users/scarnahan/Documents
